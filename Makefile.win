@@ -1,0 +1,31 @@
+# Project: Project1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o ifct_database.o
+LINKOBJ  = main.o ifct_database.o
+LIBS     = -L"C:/Users/ijina/Desktop/전자공학도를위한프로그래밍기초/program/Dev-Cpp/MinGW64/lib" -L"C:/Users/ijina/Desktop/전자공학도를위한프로그래밍기초/program/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"C:/Users/ijina/Desktop/전자공학도를위한프로그래밍기초/program/Dev-Cpp/MinGW64/include" -I"C:/Users/ijina/Desktop/전자공학도를위한프로그래밍기초/program/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/ijina/Desktop/전자공학도를위한프로그래밍기초/program/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Users/ijina/Desktop/전자공학도를위한프로그래밍기초/program/Dev-Cpp/MinGW64/include" -I"C:/Users/ijina/Desktop/전자공학도를위한프로그래밍기초/program/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/ijina/Desktop/전자공학도를위한프로그래밍기초/program/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Users/ijina/Desktop/전자공학도를위한프로그래밍기초/program/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Project1.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+ifct_database.o: ifct_database.c
+	$(CC) -c ifct_database.c -o ifct_database.o $(CFLAGS)
